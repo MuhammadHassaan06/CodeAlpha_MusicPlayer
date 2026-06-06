@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="HA MUSIC - Premium Glassmorphic Player. Stream gorgeous Pakistani tracks, enjoy synced scrolling lyrics, interact with a custom audio waveform seeker, and experience fluid ambient glow visualizers.">
+  <meta name="theme-color" content="#050508">
+  <title>HA MUSIC - Premium Glassmorphic Player</title>
+  <link rel="stylesheet" href="styles.css?v=3">
+</head>
+<body>
+
+  <!-- Animated Ambient Fluid Glow Background -->
+  <div class="ambient-bg">
+    <div class="glow-blob blob-1"></div>
+    <div class="glow-blob blob-2"></div>
+    <div class="glow-blob blob-3"></div>
+  </div>
+
+  <!-- Main Glassmorphic Dashboard (Triple-Column Setup) -->
+  <main class="app-container" id="app-dashboard">
+    
+    <!-- Column 1: Interactive Music Player Dashboard -->
+    <section class="player-section" aria-label="Music Player Controls">
+      
+      <!-- Top Badge / Header Controls -->
+      <div class="player-header">
+        <div class="app-badge" id="header-badge">
+          <div class="app-badge-dot"></div>
+          <span>★ HA MUSIC</span>
+        </div>
+        
+        <div class="header-toggle-actions">
+          <!-- Lyrics Toggle Button for mobile viewports -->
+          <button class="queue-toggle-btn" id="lyrics-toggle" aria-label="Toggle song lyrics" title="Toggle Lyrics" style="margin-right: 8px;">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 20h9M3 20h6M3 14h18M3 8h18M3 3h18"/>
+            </svg>
+          </button>
+          
+          <!-- Queue Toggle Button for mobile viewports -->
+          <button class="queue-toggle-btn" id="queue-toggle" aria-label="Toggle playlist queue" title="Toggle Queue">
+            <svg viewBox="0 0 24 24" width="20" height="20">
+              <path fill="currentColor" d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Album Art Showcase -->
+      <div class="artwork-container">
+        <div class="artwork-shadow" id="artwork-shadow"></div>
+        <div class="artwork-wrapper" id="artwork-wrapper">
+          <!-- Buffer Spinner Overlay -->
+          <div class="artwork-loader" id="audio-loader" aria-label="Loading audio content">
+            <div class="spinner"></div>
+          </div>
+          <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=600&auto=format&fit=crop&q=80" alt="Tajdar-e-Haram" class="artwork-image" id="album-art" crossorigin="anonymous">
+        </div>
+      </div>
+
+      <!-- Song Metadata Information with Gold Favorite Heart & Lyrics Panel Toggle -->
+      <div class="metadata-container">
+        <div class="song-title-row">
+          <h1 class="song-title" id="song-title">Tajdar-e-Haram</h1>
+          
+          <!-- Gold Favorite Heart Button -->
+          <button class="heart-btn" id="song-favorite" aria-label="Add to favorites" title="Favorite">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor">
+              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+          </button>
+
+          <!-- Minimalist Collapsible Lyrics & Info Panel Toggle -->
+          <button class="heart-btn" id="lyrics-panel-toggle" aria-label="Toggle Lyrics View" title="Toggle Lyrics View">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+            </svg>
+          </button>
+        </div>
+        <p class="artist-name" id="artist-name">Atif Aslam</p>
+      </div>
+
+      <!-- Custom Audio Waveform Seeker Bar -->
+      <div class="scrubber-container">
+        <div class="waveform-seeker-wrapper" id="timeline-slider-wrapper" aria-label="Audio Waveform Seeker" role="slider" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+          <div class="waveform-bars" id="waveform-bars">
+            <!-- 35 pre-rendered wave bars forming a symmetric soundwave -->
+            <div class="wave-bar" style="height: 12px;"></div>
+            <div class="wave-bar" style="height: 16px;"></div>
+            <div class="wave-bar" style="height: 20px;"></div>
+            <div class="wave-bar" style="height: 26px;"></div>
+            <div class="wave-bar" style="height: 32px;"></div>
+            <div class="wave-bar" style="height: 34px;"></div>
+            <div class="wave-bar" style="height: 28px;"></div>
+            <div class="wave-bar" style="height: 20px;"></div>
+            <div class="wave-bar" style="height: 16px;"></div>
+            <div class="wave-bar" style="height: 12px;"></div>
+            <div class="wave-bar" style="height: 10px;"></div>
+            <div class="wave-bar" style="height: 14px;"></div>
+            <div class="wave-bar" style="height: 18px;"></div>
+            <div class="wave-bar" style="height: 24px;"></div>
+            <div class="wave-bar" style="height: 30px;"></div>
+            <div class="wave-bar" style="height: 36px;"></div>
+            <div class="wave-bar" style="height: 32px;"></div>
+            <div class="wave-bar" style="height: 26px;"></div>
+            <div class="wave-bar" style="height: 18px;"></div>
+            <div class="wave-bar" style="height: 12px;"></div>
+            <div class="wave-bar" style="height: 10px;"></div>
+            <div class="wave-bar" style="height: 14px;"></div>
+            <div class="wave-bar" style="height: 22px;"></div>
+            <div class="wave-bar" style="height: 28px;"></div>
+            <div class="wave-bar" style="height: 34px;"></div>
+            <div class="wave-bar" style="height: 32px;"></div>
+            <div class="wave-bar" style="height: 24px;"></div>
+            <div class="wave-bar" style="height: 18px;"></div>
+            <div class="wave-bar" style="height: 14px;"></div>
+            <div class="wave-bar" style="height: 12px;"></div>
+            <div class="wave-bar" style="height: 16px;"></div>
+            <div class="wave-bar" style="height: 20px;"></div>
+            <div class="wave-bar" style="height: 24px;"></div>
+            <div class="wave-bar" style="height: 18px;"></div>
+            <div class="wave-bar" style="height: 12px;"></div>
+          </div>
+        </div>
+        <div class="time-labels">
+          <span id="current-time">00:00</span>
+          <span id="total-time">06:12</span>
+        </div>
+      </div>
+
+      <!-- Volume & Speaker Controls -->
+      <div class="volume-container">
+        <button class="volume-btn" id="volume-icon-btn" aria-label="Toggle mute" title="Mute/Unmute">
+          <svg viewBox="0 0 24 24" width="20" height="20" id="volume-svg">
+            <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+          </svg>
+        </button>
+        <input type="range" class="volume-slider" id="volume-slider" min="0" max="1" step="0.01" value="0.7" aria-label="Adjust volume" title="Volume">
+      </div>
+
+      <!-- Primary Action Playback Controls -->
+      <div class="controls-container">
+        <button class="control-btn secondary-control" id="btn-repeat" aria-label="Toggle repeat modes" title="Repeat Mode">
+          <svg viewBox="0 0 24 24" width="18" height="18">
+            <path d="M7 7h10v3l4-4-4-4v3H5v6h2V7zm10 10H7v-3l-4 4 4 4v-3h12v-6h-2v4z"/>
+          </svg>
+        </button>
+
+        <button class="control-btn skip-control" id="btn-prev" aria-label="Previous track" title="Previous Track">
+          <svg viewBox="0 0 24 24" width="22" height="22">
+            <path d="M6 6h2v12H6zm3.5 6L18 18V6z"/>
+          </svg>
+        </button>
+
+        <button class="control-btn play-control" id="btn-play-pause" aria-label="Play song" title="Play">
+          <svg viewBox="0 0 24 24" width="28" height="28" id="play-svg">
+            <path d="M8 5v14l11-7z"/>
+          </svg>
+        </button>
+
+        <button class="control-btn skip-control" id="btn-next" aria-label="Next track" title="Next Track">
+          <svg viewBox="0 0 24 24" width="22" height="22">
+            <path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/>
+          </svg>
+        </button>
+
+        <button class="control-btn secondary-control" id="btn-shuffle" aria-label="Toggle shuffle mode" title="Shuffle Tracks">
+          <svg viewBox="0 0 24 24" width="18" height="18">
+            <path d="M10.59 9.17L5.41 4 4 5.41l5.17 5.17 1.42-1.41zM14.5 4l2.04 2.04L4 18.59 5.41 20 17.96 7.44 20 9.5V4h-5.5zm.33 9.41l-1.41 1.41 3.13 3.13L14.5 20H20v-5.5l-2.04 2.04-3.13-3.13z"/>
+          </svg>
+        </button>
+      </div>
+
+    </section>
+
+    <!-- Column 2: Interactive Playlist Queue -->
+    <aside class="playlist-section" id="playlist-queue" aria-label="Playlist Queue">
+      
+      <div class="playlist-header">
+        <h2 class="playlist-title">Up Next Queue</h2>
+        <span class="track-count" id="queue-track-count">10 Tracks</span>
+      </div>
+
+      <!-- Sleek Minimalist Search Bar -->
+      <div class="search-wrapper">
+        <input type="text" class="search-input" id="queue-search" placeholder="Search song or artist..." aria-label="Search songs">
+        <svg class="search-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+      </div>
+
+      <!-- Scrollable Track List Container -->
+      <div class="track-list" id="track-list" role="listbox" aria-label="Songs list">
+        <!-- Rendered dynamically by app.js on load -->
+        <div class="track-item active" data-index="0" role="option" aria-selected="true" tabindex="0">
+          <div class="track-item-left">
+            <div class="track-item-thumb-wrapper">
+              <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=100&auto=format&fit=crop&q=80" alt="Tajdar-e-Haram Cover" class="track-item-thumb">
+            </div>
+            <div class="track-item-meta">
+              <p class="track-item-title">Tajdar-e-Haram</p>
+              <p class="track-item-artist">Atif Aslam</p>
+            </div>
+          </div>
+          <div class="track-item-right">
+            <div class="equalizer-wave" aria-hidden="true">
+              <div class="eq-bar"></div>
+              <div class="eq-bar"></div>
+              <div class="eq-bar"></div>
+              <div class="eq-bar"></div>
+            </div>
+            <span class="track-item-duration">06:12</span>
+          </div>
+        </div>
+      </div>
+
+    </aside>
+
+    <!-- Column 3: Dynamic Scrolling Lyrics & Credits -->
+    <aside class="lyrics-section" id="lyrics-panel" aria-label="Song Lyrics and Credits">
+      
+      <div class="lyrics-header">
+        <h2 class="lyrics-title">Lyrics & Info</h2>
+        <span class="lyrics-badge" id="lyrics-sync-badge">Synced</span>
+      </div>
+
+      <!-- Immersive scrolling container with fading masks -->
+      <div class="lyrics-scroll-container" id="lyrics-container" role="region" aria-live="polite" aria-label="Lyrics scroll view">
+        <!-- Lines are dynamically populated by JS with start times -->
+        <p class="lyric-line active">♪ Loading synchronized lyrics ♪</p>
+      </div>
+
+      <!-- Song Credits Panel -->
+      <div class="credits-container" id="credits-container">
+        <p class="credits-title">Song Credits</p>
+        <p class="credits-item" id="credits-writers">Writers: <strong>Hazrat Sharafuddin (Traditional)</strong></p>
+        <p class="credits-item" id="credits-producers">Producers: <strong>Shiraz Uppal</strong></p>
+      </div>
+
+    </aside>
+
+  </main>
+
+  <script src="app.js?v=3"></script>
+</body>
+</html>
